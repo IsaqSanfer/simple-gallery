@@ -3,100 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+
+    <title>Galleries</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
 </head>
 <body>
-    <style>
-        *, *::after, *::before {padding: 0; margin: 0; box-sizing: border-box;}
-
-        .container {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: lightgray;
-            min-height: 100vh;
-        }
-
-        .gallery-title {
-            padding: 10px;
-            margin-bottom: 15px;
-            border-block: 3px solid white;
-        }
-
-        .gallery-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 10px;
-            width: 100%;
-            max-width: 1100px;
-            padding: 10px;
-            margin-block: 20px;
-            background-color: aliceblue;
-            box-shadow: 0 0 10px 5px rgba(0, 0, 0, .5);
-        }
-            .gallery-wrapper .gallery-item {
-                flex-basis: calc(25% - 10px);
-                position: relative; /* para assegurar posição de .gallery-description */
-                overflow: hidden;
-                border-radius: 5px;
-            }
-            .gallery-wrapper .gallery-link {
-                text-decoration: none;
-            }
-            .gallery-wrapper .gallery-image {
-                display: block;
-                width: 100%;
-                height: 100%;
-                transform: scale(1); /* default */
-                transition: transform .5s ease-in-out;
-            }
-            .gallery-wrapper .gallery-description {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                padding: 5px;
-                font-size: 16px;
-                letter-spacing: 2px;
-                /* text-align: right; */
-                text-transform: uppercase;
-                color: whitesmoke;
-                background-color: rgba(0, 0, 0, .8);
-                opacity: .5;
-                transform: translateY(100%);
-                transition: all .3s ease-in-out;
-                /* border-radius: 0 0 5px 5px; */
-            }
-
-            .gallery-item::after {
-                content: "";
-                position: absolute;
-                inset: 0; /* define os valores para top,bottom,left e rigth */
-                background-color: white;
-                opacity: .5;
-                transition: all .5s ease-in-out;
-                pointer-events: none; /* desabilitando as interações do mouse com este elemento */
-            }
-
-            .gallery-item:hover::after {
-                opacity: 0;
-            }
-
-            .gallery-item:hover .gallery-description {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            
-            .gallery-item:hover .gallery-image {
-                transform: scale(1.2);                
-            }
-
-        @media (max-width:950px) {.gallery-wrapper .gallery-item {flex-basis: calc(50% - 10px);}}        
-        @media (max-width:520px) {.gallery-wrapper .gallery-item {flex-basis: calc(100%);}}
-    </style>
-
     <main class="container">
         <h1 class="gallery-title">Gallery</h1>
         <section class="gallery-wrapper">
@@ -149,6 +63,41 @@
                 </figure>
             </article>
         </section>
+
+        <section class="random">
+            <h2 class="gallery-title">Gallery</h2>
+            <div class="random__wrapper">
+                <div class="random__banners">
+                    <img width="1920" height="345" alt="Item" src="https://picsum.photos/1920/345?random=9">
+                </div>
+            </div>
+        </section>
+        
+        <section class="random">
+            <h2 class="gallery-title">Gallery</h2>
+            <div id="randomSlide" class="swiper">
+                <ul class="random__list swiper-wrapper">
+                    <li class="random__item swiper-slide">
+                        <img width="400" height="350" src="https://picsum.photos/400/350?random=10" alt="Item 1" />
+                    </li>
+                    <li class="random__item swiper-slide">
+                        <img width="400" height="350" src="https://picsum.photos/400/350?random=11" alt="Item 2" />
+                    </li>
+                    <li class="random__item swiper-slide">
+                        <img width="400" height="350" src="https://picsum.photos/400/350?random=12" alt="Item 3" />
+                    </li>
+                    <li class="random__item swiper-slide">
+                        <img width="400" height="350" src="https://picsum.photos/400/350?random=13" alt="Item 4" />
+                    </li>
+                    <li class="random__item swiper-slide">
+                        <img width="400" height="350" src="https://picsum.photos/400/350?random=14" alt="Item 5" />
+                    </li>
+                </ul>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
     </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
 </html>
